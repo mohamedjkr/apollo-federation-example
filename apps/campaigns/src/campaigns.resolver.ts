@@ -26,6 +26,9 @@ export class CampaignsResolver {
     }))
   }
 
+  /**
+   * Called by the Gateway whenever another service returns a reference to a Campaign entity
+   */
   @ResolveReference()
   resolveReference(reference: { __typename: string; id: string }) {
     const campaign = this.data.find((campaign) => campaign.id === reference.id)

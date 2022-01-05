@@ -13,6 +13,9 @@ export class ProductsResolver {
     return this.data
   }
 
+  /**
+   * Called by the Gateway whenever another service returns a reference to a Product entity
+   */
   @ResolveReference()
   resolveReference(reference: { __typename: string; sku: string }) {
     const product = this.data.find((product) => product.sku === reference.sku)

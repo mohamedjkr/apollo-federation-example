@@ -24,7 +24,10 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+An example [Nest](https://github.com/nestjs/nest) application that provides a working implementation of apollo federation, the app consists of three services:
+ - **gateway**: GraphQL Gateway service which acts as the main entry point for the api
+ - **products**: Federated GraphQL service which provides products queries and data
+ - **campaigns**: Federated GraphQL service which provides campaigns queries and data
 
 ## Installation
 
@@ -46,6 +49,26 @@ $ npm start campaigns
 # start the gateway
 # http://localhost:3000/graphql
 $ npm start gateway
+```
+
+### Test Query
+
+After starting the above three services, navigate to the gateway service url http://localhost:3000/graphql and then run the following query in order 
+to test the integration between services:
+
+```graphql
+query GetCampaigns {
+  getCampaigns {
+    id
+    name
+    products {
+      sku
+      name
+      price
+      inventory
+    }
+  }
+}
 ```
 
 ## License
