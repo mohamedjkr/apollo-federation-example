@@ -1,0 +1,41 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/gateway/src",
+  "monorepo": true,
+  "root": "apps/gateway",
+  "compilerOptions": {
+    "webpack": true,
+    "assets": ["**/*.gql"],
+    "watchAssets": true,
+    "tsConfigPath": "apps/gateway/tsconfig.app.json"
+  },
+  "projects": {
+    "gateway": {
+      "type": "application",
+      "root": "apps/gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/gateway/tsconfig.app.json"
+      }
+    },
+    "products": {
+      "type": "application",
+      "root": "apps/products",
+      "entryFile": "main",
+      "sourceRoot": "apps/products/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/products/tsconfig.app.json"
+      }
+    },
+    "campaigns": {
+      "type": "application",
+      "root": "apps/campaigns",
+      "entryFile": "main",
+      "sourceRoot": "apps/campaigns/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/campaigns/tsconfig.app.json"
+      }
+    }
+  }
+}

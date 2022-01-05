@@ -1,0 +1,10 @@
+type Product @key(fields: "sku") {
+  sku: ID!
+  name: String!
+  price: Float!
+  inventory: Int!
+}
+
+extend type Query {
+  getProducts: [Product!]!
+}

@@ -1,0 +1,13 @@
+extend type Product @key(fields: "sku") {
+  sku: ID! @external
+}
+
+type Campaign @key(fields: "id") {
+  id: ID!
+  name: String!
+  products: [Product!]!
+}
+
+extend type Query {
+  getCampaigns: [Campaign!]!
+}
